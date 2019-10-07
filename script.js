@@ -22,7 +22,7 @@ function copyClipboard(){
 
 button.addEventListener('click', function(){
     while (!(howLong >=8 && howLong <=128)) {
-     var howLong = prompt('How long would you like your password? Please pick a number between 8 and 128.') 
+    howLong = prompt('How long would you like your password? Please pick a number between 8 and 128.') 
     };
     console.log(howLong); //value from prompt
     
@@ -35,32 +35,36 @@ button.addEventListener('click', function(){
     var shouldHaveNumbers = confirm('Would you you to use numbers?');
     console.log(shouldHaveNumbers); //true or false
 
-    var allPossibleCharacters = '';
+    var allPossibleCharacters = [];
     if (shouldHaveSpecialCharacters) {
-      allPossibleCharacters = allPossibleCharacters + specialChar; 
+      allPossibleCharacters = allPossibleCharacters.concat(specialChar); 
     } //will add specialChar to string if true
     if (shouldBeUppercase) {
-      allPossibleCharacters = allPossibleCharacters + upperCaseChar;
+      allPossibleCharacters = allPossibleCharacters.concat(upperCaseChar);
     } //will add upperCaseChar to string if true
     if (shouldBeLowerCase) {
-     allPossibleCharacters = allPossibleCharacters + lowerCaseChar;
+     allPossibleCharacters = allPossibleCharacters.concat(lowerCaseChar);
     } //will add lowerCaseChar to string if true
     if (shouldHaveNumbers) {
-      allPossibleCharacters = allPossibleCharacters + numChar;
+      allPossibleCharacters = allPossibleCharacters.concat(numChar);
     } //will add numChar to string if true
     else {
       alert('Please choose at least one type of character for your password')
     };
-      for (i = 0; i < howLong; i++) {
+    console.log("All Possible Characters", allPossibleCharacters)
+    let password = '' 
+    for (i = 0; i < howLong; i++) {
       var randomIndex = Math.floor(Math.random() * allPossibleCharacters.length);
       var randomChar = allPossibleCharacters[randomIndex];
-      var password = password + randomChar;
-      console.log(password);
-      document.createElement("textarea").value = password; 
+      password = password + randomChar;
     } 
+    document.createElement("textarea").value = password; 
+    console.log(password);
   
 });
 
 copyToClipboardBtn.addEventListener('click', copyClipboard(textArea));
+
+// add strings, concat arrays
 
   
