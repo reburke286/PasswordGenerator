@@ -1,7 +1,7 @@
 var button = document.querySelector('#generate');
 var textArea = document.querySelector('#exampleFormControlTextarea1');
 var copyToClipboardBtn = document.querySelector('#copyToClipboardBtn');
-let howLong = '';
+var howLong = '';
 var specialChar = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-'];
 var lowerCaseChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
